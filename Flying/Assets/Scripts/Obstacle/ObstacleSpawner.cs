@@ -17,13 +17,13 @@ public class ObstacleSpawner : MonoBehaviour
     {
         int randomIndex = Random.Range(0, obstacles.Count);
 
-        Vector3 randomPos = new Vector3 (Random.Range(-3f,3f), 0f, Random.Range(50f,100f));
+        Vector3 randomPos = new Vector3 (Random.Range(-3f,3f), 1f, Random.Range(50f,80f));
 
         GameObject obstaclePrefab = obstacles[randomIndex];
 
         Instantiate(obstaclePrefab, randomPos, Quaternion.identity);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         StartCoroutine(SpawnObstacles());
     }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RockType3
   m_EditorClassIdentifier: 
   movementSpeed: 25
-  obstacleName: RockTyp3
-  obstacleMaterial: {fileID: 0}
-  obstacleScale: {x: 3, y: 3, z: 3}
+  obstacleName: RockType3
+  obstacleMaterial: {fileID: 2100000, guid: ed63293fbde5c4d7d8a99e1e5c72adf1, type: 2}
+  obstacleScale: {x: 2.5, y: 2.5, z: 2.5}
