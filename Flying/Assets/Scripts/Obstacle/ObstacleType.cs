@@ -7,5 +7,6 @@ public class ObstacleType : ScriptableObject
 {
     public float movementSpeed;
     public string obstacleName;
-    public Color color;
+    public Material obstacleMaterial;
+    public Vector3 obstacleScale;
 }

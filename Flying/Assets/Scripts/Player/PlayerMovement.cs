@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public FloatingJoystick joystick;
+
     public int moveSpeed;
 
     public float horizontalLimit;
-    public float verticalLimit;
     public float maxRotationAngle;
     public float rotationSpeed;
 
@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     private void MoveAndRotate()
     {
         float horizontalMove = joystick.Horizontal;
-        //float verticalMove = joystick.Vertical;
 
         float targetRotationAngle = Mathf.Lerp(0f, horizontalMove > 0 ? maxRotationAngle : -maxRotationAngle, Mathf.Abs(horizontalMove));
 
@@ -44,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 ClampPosition(Vector3 position)
     {
         position.x = Mathf.Clamp(position.x, -horizontalLimit, horizontalLimit);
-        //position.y = Mathf.Clamp(position.y, -verticalLimit, verticalLimit);
         return position;
     }
 }

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71109b91982804c248ded3835156c10d, type: 3}
-  m_Name: SquareObstacle
+  m_Name: RockType1
   m_EditorClassIdentifier: 
-  movementSpeed: 0
-  obstacleName: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  movementSpeed: 30
+  obstacleName: Rock1
+  obstacleMaterial: {fileID: 2100000, guid: dbb97820a73fa4ed6920ade91da935d9, type: 2}
+  obstacleScale: {x: 2, y: 2, z: 2}

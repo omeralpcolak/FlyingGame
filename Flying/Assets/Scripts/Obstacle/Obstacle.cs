@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Obstacle : MonoBehaviour
 {
     public ObstacleType obstacleType;
 
-    public float movementSpeed;
+    private float movementSpeed;
 
     private void Start()
     {
-        GetComponent<Renderer>().material.color = obstacleType.color;
+        GetComponent<Renderer>().material = obstacleType.obstacleMaterial;
         movementSpeed = obstacleType.movementSpeed;
-        Debug.Log("Movement speed is: " + movementSpeed);
+
+        transform.DOScale(obstacleType.obstacleScale, 1f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         ObstacleMovement();
+        
     }
 
     public void ObstacleMovement()
