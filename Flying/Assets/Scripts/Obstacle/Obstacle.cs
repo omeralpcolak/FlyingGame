@@ -7,15 +7,12 @@ public class Obstacle : MonoBehaviour
 {
     public ObstacleType obstacleType;
 
-    private float movementSpeed;
-
     Rigidbody obstacleRb;
 
     private void Awake()
     {
         obstacleRb = GetComponent<Rigidbody>();
         GetComponent<Renderer>().material = obstacleType.obstacleMaterial;
-        movementSpeed = obstacleType.movementSpeed;
     }
 
     private void Start()
@@ -37,7 +34,7 @@ public class Obstacle : MonoBehaviour
     public void ObstacleMovement()
     {
         //transform.Translate(-Vector3.forward * Time.deltaTime * movementSpeed);
-        obstacleRb.MovePosition(obstacleRb.position + -Vector3.forward * Time.deltaTime * movementSpeed);
+        obstacleRb.MovePosition(obstacleRb.position + -Vector3.forward * Time.deltaTime * obstacleType.movementSpeed);
     }
 
 

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: RockType2
   m_EditorClassIdentifier: 
   movementSpeed: 20
+  rotationTime: 3
   obstacleName: Rock2
   obstacleMaterial: {fileID: 2100000, guid: a1ad0d749c6e6433da23fa4aa115f0bf, type: 2}
   obstacleScale: {x: 3, y: 3, z: 3}
+  rotationVector: {x: 360, y: 0, z: 360}
