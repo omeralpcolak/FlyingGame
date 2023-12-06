@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71109b91982804c248ded3835156c10d, type: 3}
   m_Name: RockType3
   m_EditorClassIdentifier: 
-  movementSpeed: 25
-  rotationTime: 4
+  movementSpeed: 20
+  rotationTime: 6
   obstacleName: RockType3
   obstacleMaterial: {fileID: 2100000, guid: ed63293fbde5c4d7d8a99e1e5c72adf1, type: 2}
   obstacleScale: {x: 2.5, y: 2.5, z: 2.5}

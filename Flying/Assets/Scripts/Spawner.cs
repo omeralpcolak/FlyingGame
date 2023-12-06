@@ -15,17 +15,19 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnObject(obstacles, GenerateRandomPos(obstacleMinX, obstacleMaxX, obstacleMinY, obstacleMaxY, obstacleMinZ, obstacleMaxZ, "Obstacle"),obstacleSpawnCooldown));
-        StartCoroutine(SpawnObject(spaceShips, GenerateRandomPos(spaceShipMinX, spaceShipMaxX, spaceShipMinY, spaceShipMaxY, spaceShipMinZ, spaceShipMaxZ,"SpaceShip"), spaceShipSpawnCooldown));
+        StartCoroutine(SpawnObject(obstacles,obstacleSpawnCooldown,"Obstacle"));
+        StartCoroutine(SpawnObject(spaceShips, spaceShipSpawnCooldown,"SpaceShip"));
     }
 
-    IEnumerator SpawnObject(List<GameObject> objectList,Vector3 randomPos,float cooldown)
+    IEnumerator SpawnObject(List<GameObject> objectList,float cooldown,string objectName)
     {
         while (true)
         {
             int randomIndex = Random.Range(0, objectList.Count);
             
             GameObject objectPrefab = objectList[randomIndex];
+
+            Vector3 randomPos = GenerateRandomPos(objectName);
 
             Instantiate(objectPrefab, randomPos, Quaternion.identity);
 
@@ -34,23 +36,24 @@ public class Spawner : MonoBehaviour
         
     }
 
-    private Vector3 GenerateRandomPos(int minX, int maxX, int minY, int maxY, int minZ, int maxZ,string objectName)
+    private Vector3 GenerateRandomPos(string objectName)
     {
-        float randomX = Random.Range(minX, maxX);
-        float randomY = Random.Range(minY, maxY);
+        float randomX = Random.Range(objectName == "SpaceShip" ? spaceShipMinX : obstacleMinX, objectName == "SpaceShip" ? spaceShipMaxX : obstacleMaxX);
+        float randomY = Random.Range(objectName == "SpaceShip" ? spaceShipMinY : obstacleMinY, objectName == "SpaceShip" ? spaceShipMaxY : obstacleMaxY);
 
         if (objectName == "SpaceShip")
         {
             while (randomY >= -40f && randomY <= 40f)
             {
-                randomY = Random.Range(minY, maxY);
+                randomY = Random.Range(spaceShipMinY, spaceShipMaxY);
             }
         }
-        
-        float randomZ = Random.Range(minZ, maxZ);
+
+        float randomZ = Random.Range(objectName == "SpaceShip" ? spaceShipMinZ : obstacleMinZ, objectName == "SpaceShip" ? spaceShipMaxZ : obstacleMaxZ);
 
         Vector3 randomPos = new Vector3(randomX, randomY, randomZ);
         return randomPos;
-    }    
+    }
+
 
 }
